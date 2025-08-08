@@ -1,0 +1,18 @@
+# Ambientes virtuais
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# PyInstaller builds
+dist/
+build/
+*.spec
+
+# VS Code
+.vscode/
+
+# Outros arquivos temporários
+.DS_Store
