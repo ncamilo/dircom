@@ -139,5 +139,5 @@ Sinta-se à vontade para contribuir com testes ou melhorias!
 
 ## 🔗 Autor
 
-**Camilo Nascimento**  
+**Nelson Almeida**  
 [github.com/ncamilo](https://github.com/ncamilo)
