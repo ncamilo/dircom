@@ -2,97 +2,87 @@
 
 [![CI](https://github.com/ncamilo/dircom/actions/workflows/python-ci.yml/badge.svg)](https://github.com/ncamilo/dircom/actions)
 
-
-**Dircom** é um utilitário de linha de comando leve, multiplataforma e escrito em Python, para listar portas seriais disponíveis no sistema — com destaque para portas USB. Ideal para desenvolvedores que trabalham com ESP32, Arduino, Raspberry Pi, sensores e outros dispositivos seriais.
-
----
-
-## 🚀 Funcionalidades
-
-- Lista todas as portas COM/seriais disponíveis
-- Filtra somente portas conectadas via USB (`--usb-only`)
-- Marcação clara de portas USB com tag `[USB]`
-- Compatível com **Windows**, **Linux** e **macOS**
-- Interface por linha de comando, fácil de usar
-- Compilável em `.exe` para uso offline em Windows
+**Dircom** is a lightweight, cross-platform command-line utility written in Python to list available serial (COM) ports on your system, with special emphasis on USB-connected devices. Ideal for developers working with ESP32, Arduino, Raspberry Pi, sensors, and other serial peripherals.
 
 ---
 
-## 💻 Uso
+## 🚀 Features
+
+- Lists all available serial ports (COM on Windows, `/dev/tty*` on Unix-like systems)  
+- Filters only USB-connected ports (`--usb-only`)  
+- Tags USB ports with `[USB]`  
+- Compatible with **Windows**, **Linux**, and **macOS**  
+- Simple, easy-to-use CLI  
+- Can be packaged as a standalone executable for Windows  
+
+---
+
+## 💻 Usage
 
 ```bash
-python dircom.py
+dircom [options]
 ```
 
-### Opções:
+### Options
 
-| Parâmetro        | Descrição                                |
-|------------------|--------------------------------------------|
-| `-u`, `--usb-only` | Mostra apenas portas USB                  |
-| `-v`, `--version`  | Mostra a versão atual do utilitário       |
-| `-h`, `--help`     | Exibe ajuda e instruções de uso           |
+| Flag               | Description                               |
+|--------------------|-------------------------------------------|
+| `-u`, `--usb-only` | Show only USB-connected ports             |
+| `-v`, `--version`  | Display the current Dircom version        |
+| `-h`, `--help`     | Show help message and exit                |
 
-### Exemplos:
-
-```bash
-python dircom.py --usb-only
-python dircom.py -v
-```
-
----
-
-## 🔧 Instalação
-
-**Requisitos:**
-
-- Python 3.6 ou superior
-- Biblioteca `pyserial`
-
-### Instale com pip:
+### Examples
 
 ```bash
-pip install pyserial
+dircom
+dircom --usb-only
+dircom --version
 ```
 
 ---
 
-## 🛠️ Compilando para `.exe` no Windows
+## 🔧 Installation
 
-Para distribuir como um executável standalone (sem Python instalado):
-
-### 1. Instale o PyInstaller
+### From PyPI
 
 ```bash
-pip install pyinstaller
-```
-
-### 2. Compile o script
-
-```bash
-pyinstaller --onefile --name dircom dircom.py
-```
-
-O executável será gerado em:
-
-```
-dist/dircom.exe
+pip install dircom
 ```
 
 ---
 
-## 🐧 Linux/macOS
+## 🛠️ Compiling to a Windows Executable
 
-Você pode rodar com:
+If you want to distribute Dircom without requiring Python:
+
+1. Install PyInstaller:
+   ```bash
+   pip install pyinstaller
+   ```
+2. Build the executable:
+   ```bash
+   pyinstaller --onefile --name dircom dircom.py
+   ```
+3. The standalone executable will be created at:
+   ```
+   dist/dircom.exe
+   ```
+
+---
+
+## 🐧 Linux / macOS
+
+Run directly with Python:
 
 ```bash
 python3 dircom.py
 ```
 
-Ou compilar com PyInstaller no próprio sistema operacional.
+Or package with PyInstaller on the target operating system.
 
 ---
 
-## 📂 Estrutura recomendada
+## 📂 Recommended Project Structure
 
 ```
 dircom/
@@ -100,14 +90,19 @@ dircom/
 ├── README.md
 ├── .gitignore
 ├── requirements.txt
-└── LICENSE
+├── setup.py
+├── MANIFEST.in
+├── LICENSE
+└── .github/
+    └── workflows/
+        └── python-ci.yml
 ```
 
 ---
 
-## 📦 Requisitos
+## 📦 Requirements
 
-Conteúdo de `requirements.txt`:
+Ensure your `requirements.txt` contains:
 
 ```
 pyserial>=3.5
@@ -115,32 +110,30 @@ pyserial>=3.5
 
 ---
 
-## 📜 Licença
+## 📜 License
 
-Distribuído sob a licença [MIT](LICENSE).
-
----
-
-## 🤝 Contribuições
-
-Contribuições são bem-vindas! Sinta-se livre para abrir issues ou pull requests com melhorias, sugestões ou correções.
+This project is licensed under the GNU General Public License v3.0 (GPL-3.0). See the [LICENSE](LICENSE) file for details.
 
 ---
 
 ## 📝 TODO
 
-- [x] Testar funcionalidade completa no **Windows**
-- [ ] Testar no **Linux** com diversas distribuições
-- [ ] Testar no **macOS** (ainda não verificado)
-- [ ] Adicionar testes automatizados (opcional)
-- [ ] Criar executável para Linux e macOS com PyInstaller
-- [ ] Publicar no PyPI (como pacote Python)
+- [x] Fully test functionality on **Windows**  
+- [ ] Test on **Linux** (various distributions)  
+- [ ] Test on **macOS**  
+- [ ] Add automated tests (e.g., pytest)  
+- [ ] Build executables for Linux and macOS  
+- [ ] Publish GitHub releases  
 
 ---
 
-Sinta-se à vontade para contribuir com testes ou melhorias!
+## 🤝 Contributions
 
-## 🔗 Autor
+Contributions are welcome! Feel free to open issues or pull requests.
+
+---
+
+## 🔗 Author
 
 **Nelson Almeida**  
-[github.com/ncamilo](https://github.com/ncamilo)
+[https://github.com/ncamilo](https://github.com/ncamilo)

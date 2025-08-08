@@ -1,35 +1,39 @@
+#!/usr/bin/env python3
 import serial.tools.list_ports
 import argparse
 
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
-def listar_portas_com(usb_only=False):
-    portas = serial.tools.list_ports.comports()
-    if not portas:
-        print("Nenhuma porta COM encontrada.")
+def list_serial_ports(usb_only=False):
+    ports = serial.tools.list_ports.comports()
+    if not ports:
+        print("No serial ports found.")
         return
 
-    print("Portas COM disponíveis:")
-    for porta in portas:
-        is_usb = porta.vid is not None and porta.pid is not None
+    print("Available serial ports:")
+    for p in ports:
+        is_usb = p.vid is not None and p.pid is not None
         if usb_only and not is_usb:
             continue
         usb_flag = " [USB]" if is_usb else ""
-        print(f"- {porta.device} ({porta.description}){usb_flag}")
+        print(f"- {p.device} ({p.description}){usb_flag}")
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Listar portas seriais (COM) disponíveis no sistema."
+        description="List available serial (COM) ports on Windows, Linux & macOS."
     )
     parser.add_argument(
-        "-u", "--usb-only", action="store_true", help="Listar apenas portas USB"
+        "-u", "--usb-only",
+        action="store_true",
+        help="show only USB-connected ports"
     )
     parser.add_argument(
-        "-v", "--version", action="version", version=f"%(prog)s {VERSION}"
+        "-v", "--version",
+        action="version",
+        version=f"%(prog)s {VERSION}"
     )
-
     args = parser.parse_args()
-    listar_portas_com(usb_only=args.usb_only)
+    list_serial_ports(usb_only=args.usb_only)
 
 if __name__ == "__main__":
     main()
