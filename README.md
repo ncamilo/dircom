@@ -1,5 +1,8 @@
 # 🔌 Dircom
 
+[![CI](https://github.com/ncamilo/dircom/actions/workflows/python-ci.yml/badge.svg)](https://github.com/ncamilo/dircom/actions)
+
+
 **Dircom** é um utilitário de linha de comando leve, multiplataforma e escrito em Python, para listar portas seriais disponíveis no sistema — com destaque para portas USB. Ideal para desenvolvedores que trabalham com ESP32, Arduino, Raspberry Pi, sensores e outros dispositivos seriais.
 
 ---
