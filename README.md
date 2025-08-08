@@ -124,6 +124,19 @@ Contribuições são bem-vindas! Sinta-se livre para abrir issues ou pull reques
 
 ---
 
+## 📝 TODO
+
+- [x] Testar funcionalidade completa no **Windows**
+- [ ] Testar no **Linux** com diversas distribuições
+- [ ] Testar no **macOS** (ainda não verificado)
+- [ ] Adicionar testes automatizados (opcional)
+- [ ] Criar executável para Linux e macOS com PyInstaller
+- [ ] Publicar no PyPI (como pacote Python)
+
+---
+
+Sinta-se à vontade para contribuir com testes ou melhorias!
+
 ## 🔗 Autor
 
 **Camilo Nascimento**  
